@@ -139,78 +139,13 @@
             border-radius: 0 2px 2px 0;
         }
 
-        /* ===== PAGE LOADER ===== */
-        #page-loader {
-            position: fixed;
-            inset: 0;
-            z-index: 10000;
-            background: var(--bg-primary);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
-
-        #page-loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .loader-logo {
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            animation: loaderPulse 1.2s ease-in-out infinite;
-        }
-
-        .loader-logo span {
-            color: var(--accent-cyan);
-        }
-
-        @keyframes loaderPulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.4;
-            }
-        }
-
-        .loader-bar {
-            width: 180px;
-            height: 3px;
-            background: rgba(0, 102, 204, 0.12);
-            border-radius: 999px;
-            overflow: hidden;
-        }
-
-        .loader-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-amber));
-            border-radius: 999px;
-            animation: loaderFill 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
-
-        @keyframes loaderFill {
-            from {
-                width: 0%;
-            }
-
-            to {
-                width: 100%;
-            }
-        }
+    
 
         /* ===== CUSTOM CURSOR ===== */
         #cursor-dot {
             position: fixed;
+            top: 0;
+            left: 0;
             width: 8px;
             height: 8px;
             background: var(--accent-cyan);
@@ -218,11 +153,13 @@
             pointer-events: none;
             z-index: 9998;
             transform: translate(-50%, -50%);
-            transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+            transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
         }
 
         #cursor-ring {
             position: fixed;
+            top: 0;
+            left: 0;
             width: 36px;
             height: 36px;
             border: 1.5px solid rgba(0, 102, 204, 0.4);
@@ -230,7 +167,7 @@
             pointer-events: none;
             z-index: 9997;
             transform: translate(-50%, -50%);
-            transition: left 0.12s ease, top 0.12s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+            transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
         }
 
         body.cursor-hover #cursor-dot {
@@ -495,8 +432,7 @@
 
         .navbar.scrolled {
             padding: 14px 0;
-            background: rgba(248, 250, 252, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(248, 250, 252, 0.98);
             border-bottom: 1px solid var(--border);
             box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
         }
@@ -626,7 +562,6 @@
             inset: 0;
             z-index: 99;
             background: rgba(248, 250, 252, 0.98);
-            backdrop-filter: blur(20px);
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -683,18 +618,9 @@
                 linear-gradient(90deg, rgba(0, 102, 204, 0.04) 1px, transparent 1px);
             background-size: 60px 60px;
             z-index: 1;
-            animation: gridDrift 20s linear infinite;
         }
 
-        @keyframes gridDrift {
-            from {
-                background-position: 0 0;
-            }
-
-            to {
-                background-position: 60px 60px;
-            }
-        }
+    
 
         .hero-content {
             display: grid;
@@ -1022,7 +948,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
             margin-top: 56px;
         }
@@ -1091,8 +1017,7 @@
         .service-icon {
             width: 48px;
             height: 48px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 12px;
             display: flex;
@@ -1548,7 +1473,7 @@
     =========================== */
         .founders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 32px;
             margin-top: 56px;
         }
@@ -1965,20 +1890,14 @@
     <!-- Scroll progress -->
     <div id="scroll-progress"></div>
 
-    <!-- Page Loader -->
-    <div id="page-loader">
-        <div class="loader-logo">Problem <span>Solving</span> Mind</div>
-        <div class="loader-bar">
-            <div class="loader-bar-fill"></div>
-        </div>
-    </div>
+    
 
     <!-- Custom cursor -->
     <div id="cursor-dot"></div>
     <div id="cursor-ring"></div>
 
     <!-- Floating CTA -->
-    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" id="float-cta">
+    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer" id="float-cta">
         <span class="pulse-ring"></span>
         🚀 Free Proposal
     </a>
@@ -2005,7 +1924,7 @@
                 <a href="#contact">Contact</a>
             </div>
             <div class="nav-cta">
-                <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" class="btn btn-primary"
+                <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
                     style="padding: 10px 22px; font-size:0.875rem;">Get a Free Proposal →</a>
             </div>
             <div class="hamburger" id="hamburger">
@@ -2021,7 +1940,7 @@
         <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
         <a href="#founders" onclick="closeMobileMenu()">About</a>
         <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-        <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" class="btn btn-primary">Get Started →</a>
+        <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get Started →</a>
     </div>
 
     <!-- ========================
@@ -2044,7 +1963,7 @@
                         biggest business challenges into your greatest competitive advantages.
                     </p>
                     <div class="hero-actions">
-                        <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" class="btn btn-primary">Start Your
+                        <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Start Your
                             Project →</a>
                         <a href="#portfolio" class="btn btn-outline">View Our Work</a>
                     </div>
@@ -2255,7 +2174,7 @@
                             Let's talk about your challenges. We'll map out a
                             custom strategy tailored to your industry and goals — completely free.</p>
                         <a href="https://wa.me/919360207861?text=Hello!%20I'm%20interested%20in%20a%20free%20strategy%20call%20for%20my%20business."
-                            target="_blank" class="btn btn-primary" style="margin-top:8px;">Book Free Strategy Call on
+                            target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:8px;">Book Free Strategy Call on
                             whatsapp→</a>
                     </div>
                 </div>
@@ -2280,7 +2199,7 @@
             <div class="portfolio-grid">
                 <div class="card portfolio-card reveal" style="transition-delay:0.1s">
                     <div class="portfolio-img">
-                        <img src="education.webp" alt="LSE Global - International Platform">
+                        <img src="education.webp" alt="LSE Global - International Platform" loading="lazy">
                         <div class="portfolio-img-overlay"></div>
                         <div class="portfolio-hover-overlay"></div>
                     </div>
@@ -2289,7 +2208,7 @@
                         <div class="portfolio-name">LSE Global — International Platform</div>
                         <p class="portfolio-desc">A comprehensive web presence for an international organisation,
                             designed for global reach with modern UX and fast performance across devices.</p>
-                        <a href="https://prasanna591.github.io/LSE_GLOBAL/" target="_blank" class="portfolio-link">
+                        <a href="https://prasanna591.github.io/LSE_GLOBAL/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
                             View Live Project
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -2302,7 +2221,7 @@
 
                 <div class="card portfolio-card reveal" style="transition-delay:0.2s">
                     <div class="portfolio-img">
-                        <img src="civil.webp" alt="Sai Builders & Constructions">
+                        <img src="civil.webp" alt="Sai Builders & Constructions" loading="lazy">
                         <div class="portfolio-img-overlay"></div>
                         <div class="portfolio-hover-overlay"></div>
                     </div>
@@ -2311,7 +2230,7 @@
                         <div class="portfolio-name">Sai Builders &amp; Constructions</div>
                         <p class="portfolio-desc">A professional branding and web presence for a leading construction
                             company — showcasing projects, instilling trust, and driving qualified inquiries.</p>
-                        <a href="https://maniyarasan10.github.io/saibuilders/" target="_blank" class="portfolio-link">
+                        <a href="https://maniyarasan10.github.io/saibuilders/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
                             View Live Project
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -2324,7 +2243,7 @@
 
                 <div class="card portfolio-card reveal" style="transition-delay:0.3s">
                     <div class="portfolio-img">
-                        <img src="holiday.webp" alt="Mr. Legends Holidays">
+                        <img src="holiday.webp" alt="Mr. Legends Holidays" loading="lazy">
                         <div class="portfolio-img-overlay"></div>
                         <div class="portfolio-hover-overlay"></div>
                     </div>
@@ -2334,7 +2253,7 @@
                         <p class="portfolio-desc">A premium travel planning and holiday booking platform — offering
                             bespoke
                             travel experiences with a seamless user journey and vibrant visual storytelling.</p>
-                        <a href="https://prasanna591.github.io/MLH_PROJECT/" target="_blank" class="portfolio-link">
+                        <a href="https://prasanna591.github.io/MLH_PROJECT/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
                             View Live Project
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -2347,7 +2266,7 @@
 
                 <div class="card portfolio-card reveal" style="transition-delay:0.4s">
                     <div class="portfolio-img">
-                        <img src="medical.webp" alt="Medicare - Healthcare Platform">
+                        <img src="medical.webp" alt="Medicare - Healthcare Platform" loading="lazy">
                         <div class="portfolio-img-overlay"></div>
                         <div class="portfolio-hover-overlay"></div>
                     </div>
@@ -2356,7 +2275,7 @@
                         <div class="portfolio-name">Medicare — Healthcare Platform</div>
                         <p class="portfolio-desc">A trustworthy healthcare web application designed to connect patients
                             with services — clean UI, accessible design, and compliance-ready structure.</p>
-                        <a href="https://prasanna591.github.io/medicare/" target="_blank" class="portfolio-link">
+                        <a href="https://prasanna591.github.io/medicare/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
                             View Live Project
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -2525,7 +2444,7 @@
                         </div>
                         <div class="pricing-feature"><span class="check">✓</span>Competitor Analysis — Quarterly</div>
                     </div>
-                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" class="btn btn-outline"
+                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer" class="btn btn-outline"
                         style="width:100%; justify-content:center;">Get Started →</a>
                     <div class="pricing-note">Ad spend budget billed separately</div>
                 </div>
@@ -2555,7 +2474,7 @@
                         <div class="pricing-feature"><span class="check">✓</span>SEO-Optimised Codebase</div>
                         <div class="pricing-feature"><span class="check">✓</span>3 Months Free Support</div>
                     </div>
-                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" class="btn btn-primary"
+                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
                         style="width:100%; justify-content:center;">Get Started →</a>
                     <div class="pricing-note">E-commerce & SaaS from ₹75,000+</div>
                 </div>
@@ -2586,7 +2505,7 @@
                         </div>
                         <div class="pricing-feature"><span class="check">✓</span>6 Months Free Bug-Fix Support</div>
                     </div>
-                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" class="btn btn-outline"
+                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer" class="btn btn-outline"
                         style="width:100%; justify-content:center;">Get Started →</a>
                     <div class="pricing-note">Complex apps from ₹2,00,000+</div>
                 </div>
@@ -2616,7 +2535,7 @@
                         <div class="pricing-feature"><span class="check">✓</span>Reporting Automation</div>
                         <div class="pricing-feature"><span class="check">✓</span>Team Training &amp; Documentation</div>
                     </div>
-                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" class="btn btn-outline"
+                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer" class="btn btn-outline"
                         style="width:100%; justify-content:center;">Get Started →</a>
                     <div class="pricing-note">Enterprise RPA projects quoted separately</div>
                 </div>
@@ -2649,7 +2568,7 @@
                         <div class="pricing-feature"><span class="check">✓</span>Multi-Agent Orchestration</div>
                         <div class="pricing-feature"><span class="check">✓</span>Ongoing Model Fine-tuning Support</div>
                     </div>
-                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" class="btn btn-amber"
+                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer" class="btn btn-amber"
                         style="width:100%; justify-content:center;">Get Started →</a>
                     <div class="pricing-note">Enterprise AI systems from ₹1,50,000+</div>
                 </div>
@@ -2668,7 +2587,7 @@
                     <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:24px; line-height:1.7;">
                         Combine services for maximum impact at a bundled price. Many clients save 20–30% with a
                         multi-service partnership.</p>
-                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" class="btn btn-primary"
+                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
                         style="width:100%; justify-content:center;">Request Custom Quote →</a>
                     <p style="font-size:0.75rem; color:var(--text-muted); margin-top:16px;">Free consultation · No
                         obligations · 24hr response</p>
@@ -2726,7 +2645,7 @@
                 <p class="cta-sub">Tell us your challenge. We'll come back with a plan — within 24 hours, no strings
                     attached.</p>
                 <div class="cta-actions">
-                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" class="btn btn-primary"
+                    <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer" class="btn btn-primary"
                         style="font-size:1.05rem; padding:16px 36px;">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;">
@@ -2791,10 +2710,10 @@
                 <div class="footer-col">
                     <div class="footer-col-title">Portfolio</div>
                     <ul>
-                        <li><a href="https://prasanna591.github.io/LSE_GLOBAL/" target="_blank">LSE Global</a></li>
-                        <li><a href="https://maniyarasan10.github.io/saibuilders/" target="_blank">Sai Builders</a></li>
-                        <li><a href="https://prasanna591.github.io/MLH_PROJECT/" target="_blank">MLH Project</a></li>
-                        <li><a href="https://prasanna591.github.io/medicare/" target="_blank">Medicare Platform</a></li>
+                        <li><a href="https://prasanna591.github.io/LSE_GLOBAL/" target="_blank" rel="noopener noreferrer">LSE Global</a></li>
+                        <li><a href="https://maniyarasan10.github.io/saibuilders/" target="_blank" rel="noopener noreferrer">Sai Builders</a></li>
+                        <li><a href="https://prasanna591.github.io/MLH_PROJECT/" target="_blank" rel="noopener noreferrer">MLH Project</a></li>
+                        <li><a href="https://prasanna591.github.io/medicare/" target="_blank" rel="noopener noreferrer">Medicare Platform</a></li>
                     </ul>
                 </div>
 
@@ -2803,7 +2722,7 @@
                     <ul>
                         <li><a href="#founders">About Us</a></li>
                         <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank">Start a Project</a></li>
+                        <li><a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer">Start a Project</a></li>
                         <li><a href="mailto:problemsolvingminds@gmail.com">Contact</a></li>
                     </ul>
                 </div>
@@ -2823,20 +2742,9 @@
      JAVASCRIPT
 ======================== -->
     <script>
-        // ===== PAGE LOADER =====
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('page-loader').classList.add('hidden');
-            }, 1500);
-        });
+    
 
-        // ===== SCROLL PROGRESS =====
-        const progressBar = document.getElementById('scroll-progress');
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            progressBar.style.width = (scrollTop / docHeight * 100) + '%';
-        }, { passive: true });
+    
 
         // ===== CUSTOM CURSOR =====
         const cursorDot = document.getElementById('cursor-dot');
@@ -2844,40 +2752,54 @@
         let mouseX = 0, mouseY = 0;
         let ringX = 0, ringY = 0;
 
-        document.addEventListener('mousemove', e => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
-        });
+        const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.matchMedia('(pointer: coarse)').matches;
 
-        // Smooth ring follow
-        function animateRing() {
-            ringX += (mouseX - ringX) * 0.12;
-            ringY += (mouseY - ringY) * 0.12;
-            cursorRing.style.left = ringX + 'px';
-            cursorRing.style.top = ringY + 'px';
-            requestAnimationFrame(animateRing);
+        if (!isTouchDevice) {
+            document.addEventListener('mousemove', e => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                // Use hardware accelerated transform instead of left/top for better framerates
+                cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+            });
+
+            // Smooth ring follow
+            function animateRing() {
+                ringX += (mouseX - ringX) * 0.12;
+                ringY += (mouseY - ringY) * 0.12;
+                cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+                requestAnimationFrame(animateRing);
+            }
+            animateRing();
+
+            // Hover detection for cursor
+            document.querySelectorAll('a, button, .btn, .service-card, .card, .why-card').forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+            });
         }
-        animateRing();
-
-        // Hover detection for cursor
-        document.querySelectorAll('a, button, .btn, .service-card, .card, .why-card').forEach(el => {
-            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-        });
 
         // ===== PARTICLES BACKGROUND =====
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
 
+        function initParticles() {
+            particles = [];
+            const particleCount = window.innerWidth < 768 ? 40 : 120;
+            for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+        }
+
         function resize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            initParticles();
         }
-        resize();
-        window.addEventListener('resize', resize);
+        
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(resize, 200);
+        });
 
         class Particle {
             constructor() { this.reset(); }
@@ -2902,15 +2824,14 @@
             }
         }
 
-        for (let i = 0; i < 120; i++) particles.push(new Particle());
-
         function connectParticles() {
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 100) {
+                    const distSq = dx * dx + dy * dy;
+                    if (distSq < 10000) {
+                        const dist = Math.sqrt(distSq);
                         ctx.beginPath();
                         ctx.strokeStyle = `rgba(0, 102, 204, ${0.04 * (1 - dist / 100)})`;
                         ctx.lineWidth = 0.5;
@@ -2923,17 +2844,56 @@
         }
 
         function animateParticles() {
+            if (window.innerWidth < 768) return; // Disable canvas loop on mobile
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach(p => { p.update(); p.draw(); });
             connectParticles();
             requestAnimationFrame(animateParticles);
         }
-        animateParticles();
+        
+        resize();
+        if (window.innerWidth >= 768) {
+            animateParticles();
+        }
 
-        // ===== NAVBAR SCROLL =====
+        // ===== CENTRALIZED SCROLL LISTENER =====
         const navbar = document.getElementById('navbar');
+        const floatCta = document.getElementById('float-cta');
+        const progressBar = document.getElementById('scroll-progress');
+        
+        let isScrollPending = false;
+        
         window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            if (!isScrollPending) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    
+                    // Navbar toggle
+                    const isScrolled = scrollY > 50;
+                    if (navbar.classList.contains('scrolled') !== isScrolled) {
+                        navbar.classList.toggle('scrolled', isScrolled);
+                    }
+                    
+                    // Float CTA toggle
+                    const isCtaVisible = scrollY > 400;
+                    if (floatCta.classList.contains('visible') !== isCtaVisible) {
+                        floatCta.classList.toggle('visible', isCtaVisible);
+                    }
+                    
+                    // Progress bar
+                    progressBar.style.width = (scrollY / docHeight * 100) + '%';
+                    
+                    // Parallax
+                    if (window.innerWidth >= 900) {
+                        const grid = document.querySelector('.hero-grid-overlay');
+                        if (grid) grid.style.transform = `translateY(${scrollY * 0.2}px)`;
+                    }
+                    
+                    isScrollPending = false;
+                });
+                isScrollPending = true;
+            }
         }, { passive: true });
 
         // ===== MOBILE MENU =====
@@ -2966,7 +2926,7 @@
         revealEls.forEach(el => observer.observe(el));
 
         // ===== COUNTER ANIMATION =====
-        function animateCounter(el, target, suffix = '') {
+        function animateCounter(el, target, suffixStr = '') {
             let current = 0;
             const step = target / 60;
             const timer = setInterval(() => {
@@ -2975,7 +2935,8 @@
                     current = target;
                     clearInterval(timer);
                 }
-                el.textContent = Math.floor(current) + suffix;
+                // Preserve the span tag for styling the suffix
+                el.innerHTML = Math.floor(current) + `<span>${suffixStr}</span>`;
             }, 16);
         }
 
@@ -2986,8 +2947,8 @@
                     const el = entry.target;
                     const text = el.textContent;
                     const num = parseInt(text);
-                    const suffix = text.replace(/[0-9]/g, '');
-                    animateCounter(el, num, suffix);
+                    const suffixStr = text.replace(/[0-9]/g, '');
+                    animateCounter(el, num, suffixStr);
                     statObserver.unobserve(el);
                 }
             });
@@ -2997,15 +2958,19 @@
         // ===== ACTIVE NAV LINKS =====
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-links a');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(s => {
-                if (window.scrollY >= s.offsetTop - 120) current = s.id;
+        
+        // Optimised: Using IntersectionObserver to avoid layout thrashing on scroll via offsetTop
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(a => {
+                        a.style.color = a.getAttribute('href') === '#' + entry.target.id ? 'var(--text-primary)' : '';
+                    });
+                }
             });
-            navLinks.forEach(a => {
-                a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text-primary)' : '';
-            });
-        }, { passive: true });
+        }, { threshold: 0.2, rootMargin: '-100px 0px -100px 0px' });
+
+        sections.forEach(s => navObserver.observe(s));
 
         // ===== SERVICE CARDS CLICK =====
         const serviceCards = document.querySelectorAll('.service-card:not(:last-child)');
@@ -3041,12 +3006,6 @@
 
         setTimeout(typeLoop, 1200);
 
-        // ===== FLOATING CTA VISIBILITY =====
-        const floatCta = document.getElementById('float-cta');
-        window.addEventListener('scroll', () => {
-            floatCta.classList.toggle('visible', window.scrollY > 400);
-        }, { passive: true });
-
         // ===== MAGNETIC BUTTON EFFECT =====
         document.querySelectorAll('.btn-primary, .btn-amber').forEach(btn => {
             btn.addEventListener('mousemove', e => {
@@ -3059,13 +3018,6 @@
                 btn.style.transform = '';
             });
         });
-
-        // ===== PARALLAX HERO GRID =====
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const grid = document.querySelector('.hero-grid-overlay');
-            if (grid) grid.style.transform = `translateY(${scrollY * 0.2}px)`;
-        }, { passive: true });
     </script>
 
 </body>
