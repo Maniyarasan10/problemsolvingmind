@@ -1925,14 +1925,14 @@
             }
 
             .nav-logo {
-                font-size: 1rem;
-                gap: 8px;
+                font-size: 0.78rem;
+                gap: 6px;
                 white-space: nowrap;
             }
 
             .nav-logo .logo-icon {
-                width: 34px;
-                height: 34px;
+                width: 28px;
+                height: 28px;
             }
 
             .section {
@@ -1957,7 +1957,12 @@
             }
 
             .footer-top {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
             }
 
             .footer-bottom {
