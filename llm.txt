@@ -1,0 +1,78 @@
+# Problem Solving Mind (PSM) — LLM Context File
+# This file provides structured context for AI language models and LLM-based crawlers.
+# Website: https://www.problemsolvingmind.com
+
+## About Problem Solving Mind
+
+Problem Solving Mind (PSM) is a full-service digital agency based in India.
+We help businesses grow through a combination of Digital Marketing, Web Development,
+Mobile App Development, Business Automation, and custom AI Agent solutions.
+
+PSM was founded by Prasanna Venkatesan (Founder & Digital Marketing Strategy Lead)
+and Maniyarasan (Co-Founder & Technology Lead — Web, Mobile & AI).
+
+## Core Services
+
+- **Digital Marketing**: SEO, SEM, Social Media Marketing, Email Marketing, Google Ads, Meta Ads, Analytics
+- **Web Development**: Custom websites, React/Next.js web apps, UI/UX design, CMS integration, SEO-optimised builds
+- **Mobile App Development**: iOS & Android apps using Flutter and React Native, Firebase backends
+- **Business Automation**: Workflow automation via Zapier, Make, n8n, RPA, CRM/ERP integrations
+- **AI Agents & LLM Solutions**: Custom LLM integrations, RAG systems, AI chatbots, multi-agent orchestration, lead qualification agents
+
+## Founders
+
+**Prasanna Venkatesan** — Founder & Digital Marketing Strategy Lead
+A strategic thinker with expertise in markets, consumer behaviour, and brand positioning.
+Drives business development, digital marketing strategy, and client partnerships at PSM.
+
+**Maniyarasan** — Co-Founder & Technology Lead
+A full-stack engineer and AI specialist. Leads web development, mobile app development,
+and AI agent architecture at Problem Solving Mind.
+
+## Contact & Links
+
+- **Website**: https://www.problemsolvingmind.com
+- **Email**: problemsolvingminds@gmail.com
+- **WhatsApp (Free Strategy Call)**: https://wa.me/919360207861
+- **Free Proposal Form**: https://forms.gle/UawtQD7Xi8FgZBSKA
+
+## Portfolio Projects
+
+- **LSE Global** — International education platform, web development & digital presence
+  URL: https://prasanna591.github.io/LSE_GLOBAL/
+
+- **Sai Builders & Constructions** — Real estate website design and branding
+  URL: https://maniyarasan10.github.io/saibuilders/
+
+- **Mr. Legends Holidays** — Travel and holiday booking platform
+  URL: https://prasanna591.github.io/MLH_PROJECT/
+
+- **Medicare** — Healthcare web application, patient-to-service connection platform
+  URL: https://prasanna591.github.io/medicare/
+
+## Key Keywords / Topic Coverage
+
+Problem Solving Mind, PSM, problemsolvingmind, digital marketing agency India,
+web development company India, mobile app development, AI agents India, LLM integration,
+business automation, SEO services, social media marketing, React development, Flutter app,
+Prasanna Venkatesan, Maniyarasan, digital agency India, full-service digital agency
+
+## Pricing Overview (Starting Points — INR)
+
+- Digital Marketing: from ₹15,000/month
+- Web Development: from ₹25,000 (one-time)
+- Mobile App Development: from ₹75,000 (one-time)
+- Business Automation: from ₹30,000 (one-time)
+- Custom AI Agent Solution: from ₹50,000 (one-time)
+
+## Geographic Focus
+
+- Primary market: India (IN)
+- Services available globally
+
+## Update / Crawl Information
+
+- Last updated: April 2026
+- Canonical URL: https://www.problemsolvingmind.com
+- Sitemap: https://www.problemsolvingmind.com/sitemap.xml
+- Robots: https://www.problemsolvingmind.com/robots.txt
