@@ -81,11 +81,27 @@
   }
   </script>
 
+    <!-- Geo & local SEO -->
+    <meta name="geo.region" content="IN-TN" />
+    <meta name="geo.placename" content="India" />
+    <meta name="language" content="en-IN" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="category" content="Digital Marketing, Web Development, AI Agency" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload critical font subset for faster LCP -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;600&display=swap" />
     <link
         href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap"
-        rel="stylesheet" />
+        rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap"
+            rel="stylesheet" />
+    </noscript>
 
     <style>
         /* ===== CSS VARIABLES ===== */
@@ -188,6 +204,7 @@
             z-index: 9998;
             transform: translate(-50%, -50%);
             transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+            will-change: transform;
         }
 
         #cursor-ring {
@@ -202,6 +219,7 @@
             z-index: 9997;
             transform: translate(-50%, -50%);
             transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+            will-change: transform;
         }
 
         body.cursor-hover #cursor-dot {
@@ -245,6 +263,8 @@
         .section {
             padding: 100px 0;
             position: relative;
+            content-visibility: auto;
+            contain-intrinsic-size: 0 600px;
         }
 
         .section-label {
@@ -392,7 +412,11 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
-            transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: border-color 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
+            contain: layout style;
         }
 
         .card:hover {
@@ -407,11 +431,13 @@
             transform: translateY(50px);
             transition: opacity 0.75s cubic-bezier(0.23, 1, 0.32, 1),
                 transform 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: opacity, transform;
         }
 
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
+            will-change: auto;
         }
 
         .reveal-left {
@@ -419,11 +445,13 @@
             transform: translateX(-60px);
             transition: opacity 0.75s cubic-bezier(0.23, 1, 0.32, 1),
                 transform 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: opacity, transform;
         }
 
         .reveal-left.visible {
             opacity: 1;
             transform: translateX(0);
+            will-change: auto;
         }
 
         .reveal-right {
@@ -431,11 +459,13 @@
             transform: translateX(60px);
             transition: opacity 0.75s cubic-bezier(0.23, 1, 0.32, 1),
                 transform 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: opacity, transform;
         }
 
         .reveal-right.visible {
             opacity: 1;
             transform: translateX(0);
+            will-change: auto;
         }
 
         /* Zoom-in variant */
@@ -444,11 +474,13 @@
             transform: scale(0.88);
             transition: opacity 0.65s cubic-bezier(0.23, 1, 0.32, 1),
                 transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: opacity, transform;
         }
 
         .reveal-scale.visible {
             opacity: 1;
             transform: scale(1);
+            will-change: auto;
         }
 
         /* ===========================
@@ -462,6 +494,7 @@
             z-index: 100;
             padding: 20px 0;
             transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: padding, background-color, box-shadow;
         }
 
         .navbar.scrolled {
@@ -652,6 +685,7 @@
                 linear-gradient(90deg, rgba(0, 102, 204, 0.04) 1px, transparent 1px);
             background-size: 60px 60px;
             z-index: 1;
+            will-change: transform;
         }
 
 
@@ -865,6 +899,7 @@
             overflow: hidden;
             z-index: 1;
             animation: deviceFloat 5s ease-in-out infinite;
+            will-change: transform, box-shadow;
         }
 
         @keyframes deviceFloat {
@@ -2020,7 +2055,10 @@
                             class="hero-typewriter" id="hero-typewriter">Growth</span>
                     </h1>
                     <p class="hero-desc">
-                        From intelligent <strong>AI agents</strong> to high-converting websites — <strong>Problem Solving Mind</strong> transforms your biggest business challenges into your greatest competitive advantages with expert <strong>digital marketing</strong>, <strong>web development</strong>, and <strong>mobile app development</strong>.
+                        From intelligent <strong>AI agents</strong> to high-converting websites — <strong>Problem
+                            Solving Mind</strong> transforms your biggest business challenges into your greatest
+                        competitive advantages with expert <strong>digital marketing</strong>, <strong>web
+                            development</strong>, and <strong>mobile app development</strong>.
                     </p>
                     <div class="hero-actions">
                         <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer"
@@ -2108,7 +2146,11 @@
             <div class="reveal">
                 <div class="section-label">What We Do</div>
                 <h2 class="section-title">Digital Agency <span>Services</span> That Scale Your Business</h2>
-                <h3 style="font-size:1.05rem; color:var(--text-secondary); font-weight:400; margin-top:14px; max-width:560px;">Expert <strong>Digital Marketing</strong>, <strong>Web Development</strong>, <strong>Mobile App Development</strong>, <strong>Business Automation</strong> &amp; <strong>AI Agents</strong> — all under one roof.</h3>
+                <h3
+                    style="font-size:1.05rem; color:var(--text-secondary); font-weight:400; margin-top:14px; max-width:560px;">
+                    Expert <strong>Digital Marketing</strong>, <strong>Web Development</strong>, <strong>Mobile App
+                        Development</strong>, <strong>Business Automation</strong> &amp; <strong>AI Agents</strong> —
+                    all under one roof.</h3>
             </div>
 
             <div class="services-grid">
@@ -2123,7 +2165,9 @@
                             </svg>
                         </div>
                         <h3 class="service-name">Digital Marketing</h3>
-                        <p class="service-desc">Data-driven <strong>SEO, SEM</strong> and <strong>social media marketing</strong> campaigns that attract, engage, and convert — growing your brand's digital footprint.</p>
+                        <p class="service-desc">Data-driven <strong>SEO, SEM</strong> and <strong>social media
+                                marketing</strong> campaigns that attract, engage, and convert — growing your brand's
+                            digital footprint.</p>
                         <div class="service-tags">
                             <span class="tag">SEO / SEM</span>
                             <span class="tag">Social Media</span>
@@ -2143,7 +2187,9 @@
                             </svg>
                         </div>
                         <h3 class="service-name">Web Development</h3>
-                        <p class="service-desc">Blazing-fast, conversion-optimised <strong>websites and web applications</strong> built with React & Next.js. Engineered for peak performance, SEO, and UX.</p>
+                        <p class="service-desc">Blazing-fast, conversion-optimised <strong>websites and web
+                                applications</strong> built with React & Next.js. Engineered for peak performance, SEO,
+                            and UX.</p>
                         <div class="service-tags">
                             <span class="tag">React / Next.js</span>
                             <span class="tag">Node.js</span>
@@ -2163,7 +2209,8 @@
                             </svg>
                         </div>
                         <h3 class="service-name">Mobile App Development</h3>
-                        <p class="service-desc">Native-quality <strong>cross-platform mobile apps</strong> for iOS & Android using Flutter and React Native — seamless UX with robust backends.</p>
+                        <p class="service-desc">Native-quality <strong>cross-platform mobile apps</strong> for iOS &
+                            Android using Flutter and React Native — seamless UX with robust backends.</p>
                         <div class="service-tags">
                             <span class="tag">Flutter</span>
                             <span class="tag">React Native</span>
@@ -2184,7 +2231,9 @@
                             </svg>
                         </div>
                         <h3 class="service-name">Business Automation</h3>
-                        <p class="service-desc">Eliminate repetitive bottlenecks with <strong>workflow automation</strong> and <strong>RPA</strong>. We automate your CRM, operations, and reporting pipelines.</p>
+                        <p class="service-desc">Eliminate repetitive bottlenecks with <strong>workflow
+                                automation</strong> and <strong>RPA</strong>. We automate your CRM, operations, and
+                            reporting pipelines.</p>
                         <div class="service-tags">
                             <span class="tag">Zapier / Make</span>
                             <span class="tag">RPA</span>
@@ -2208,7 +2257,9 @@
                             </svg>
                         </div>
                         <h3 class="service-name">AI Agents & LLM Solutions</h3>
-                        <p class="service-desc">Intelligent <strong>AI agents</strong> powered by LLM integration that think, learn, and act — custom-built for support, lead qualification, and automated decision-making.</p>
+                        <p class="service-desc">Intelligent <strong>AI agents</strong> powered by LLM integration that
+                            think, learn, and act — custom-built for support, lead qualification, and automated
+                            decision-making.</p>
                         <div class="service-tags">
                             <span class="tag">LLM Integration</span>
                             <span class="tag">Chatbots</span>
@@ -2248,20 +2299,27 @@
             <div class="reveal">
                 <div class="section-label">Our Work</div>
                 <h2 class="section-title">Web Development Portfolio — <span>Real Results</span></h2>
-                <h3 style="font-size:1.05rem; color:var(--text-secondary); font-weight:400; margin-top:14px; max-width:560px;">Every project we ship demonstrates our commitment to <strong>performance</strong>, <strong>SEO</strong>, and measurable business outcomes.</h3>
+                <h3
+                    style="font-size:1.05rem; color:var(--text-secondary); font-weight:400; margin-top:14px; max-width:560px;">
+                    Every project we ship demonstrates our commitment to <strong>performance</strong>,
+                    <strong>SEO</strong>, and measurable business outcomes.</h3>
             </div>
 
             <div class="portfolio-grid">
                 <div class="card portfolio-card reveal" style="transition-delay:0.1s">
                     <div class="portfolio-img">
-                        <img src="education.webp" alt="LSE Global International Education Web Development by Problem Solving Mind" loading="lazy">
+                        <img src="education.webp"
+                            alt="LSE Global International Education Web Development by Problem Solving Mind"
+                            loading="lazy">
                         <div class="portfolio-img-overlay"></div>
                         <div class="portfolio-hover-overlay"></div>
                     </div>
                     <div class="portfolio-info">
                         <div class="portfolio-type">🌐 Web Development &amp; Digital Presence</div>
                         <h4 class="portfolio-name">LSE Global — International Education Platform</h4>
-                        <p class="portfolio-desc">A high-performance <strong>web development</strong> project for an international education organisation — mobile-first design, fast load times, and global digital presence.</p>
+                        <p class="portfolio-desc">A high-performance <strong>web development</strong> project for an
+                            international education organisation — mobile-first design, fast load times, and global
+                            digital presence.</p>
                         <a href="https://prasanna591.github.io/LSE_GLOBAL/" target="_blank" rel="noopener noreferrer"
                             class="portfolio-link" aria-label="View LSE Global live web development project">
                             View Live Project
@@ -2276,14 +2334,17 @@
 
                 <div class="card portfolio-card reveal" style="transition-delay:0.2s">
                     <div class="portfolio-img">
-                        <img src="civil.webp" alt="Sai Builders Real Estate Website Design by Problem Solving Mind" loading="lazy">
+                        <img src="civil.webp" alt="Sai Builders Real Estate Website Design by Problem Solving Mind"
+                            loading="lazy">
                         <div class="portfolio-img-overlay"></div>
                         <div class="portfolio-hover-overlay"></div>
                     </div>
                     <div class="portfolio-info">
                         <div class="portfolio-type">🏗️ Real Estate Web Development</div>
                         <h4 class="portfolio-name">Sai Builders &amp; Constructions — Real Estate Website</h4>
-                        <p class="portfolio-desc">Professional <strong>website design</strong> and branding for a leading construction company — showcasing projects, instilling trust, and driving qualified inquiries.</p>
+                        <p class="portfolio-desc">Professional <strong>website design</strong> and branding for a
+                            leading construction company — showcasing projects, instilling trust, and driving qualified
+                            inquiries.</p>
                         <a href="https://maniyarasan10.github.io/saibuilders/" target="_blank" rel="noopener noreferrer"
                             class="portfolio-link" aria-label="View Sai Builders real estate website project">
                             View Live Project
@@ -2322,14 +2383,17 @@
 
                 <div class="card portfolio-card reveal" style="transition-delay:0.4s">
                     <div class="portfolio-img">
-                        <img src="medical.webp" alt="Medicare HealthTech Web Application by Problem Solving Mind PSM" loading="lazy">
+                        <img src="medical.webp" alt="Medicare HealthTech Web Application by Problem Solving Mind PSM"
+                            loading="lazy">
                         <div class="portfolio-img-overlay"></div>
                         <div class="portfolio-hover-overlay"></div>
                     </div>
                     <div class="portfolio-info">
                         <div class="portfolio-type">🏥 HealthTech Web Application</div>
                         <h4 class="portfolio-name">Medicare — Healthcare Web Application</h4>
-                        <p class="portfolio-desc">A trustworthy <strong>healthcare web application</strong> connecting patients with services — accessible design, clean UI, and compliance-ready structure by PSM.</p>
+                        <p class="portfolio-desc">A trustworthy <strong>healthcare web application</strong> connecting
+                            patients with services — accessible design, clean UI, and compliance-ready structure by PSM.
+                        </p>
                         <a href="https://prasanna591.github.io/medicare/" target="_blank" rel="noopener noreferrer"
                             class="portfolio-link" aria-label="View Medicare healthcare web application project">
                             View Live Project
@@ -2355,28 +2419,35 @@
             <div class="reveal" style="text-align:center;">
                 <div class="section-label" style="justify-content:center;">How We Work</div>
                 <h2 class="section-title" style="text-align:center;">Our <span>Proven</span> Digital Agency Process</h2>
-                <h3 style="font-size:1.05rem; color:var(--text-secondary); font-weight:400; margin:14px auto 0; max-width:560px; text-align:center;">From discovery to launch — a transparent, collaborative, and results-focused journey for every <strong>web development</strong> and <strong>digital marketing</strong> project.</h3>
+                <h3
+                    style="font-size:1.05rem; color:var(--text-secondary); font-weight:400; margin:14px auto 0; max-width:560px; text-align:center;">
+                    From discovery to launch — a transparent, collaborative, and results-focused journey for every
+                    <strong>web development</strong> and <strong>digital marketing</strong> project.</h3>
             </div>
             <div class="process-steps">
                 <div class="process-step reveal" style="transition-delay:0.1s">
                     <div class="step-num">01</div>
                     <h4 class="step-name">Free Discovery Call</h4>
-                    <p class="step-desc">We deep-dive into your goals, audience, and pain points to map a <strong>digital strategy</strong> that's actually worth building.</p>
+                    <p class="step-desc">We deep-dive into your goals, audience, and pain points to map a
+                        <strong>digital strategy</strong> that's actually worth building.</p>
                 </div>
                 <div class="process-step reveal" style="transition-delay:0.2s">
                     <div class="step-num">02</div>
                     <h4 class="step-name">Strategy & Blueprint</h4>
-                    <p class="step-desc">A tailored <strong>digital marketing</strong> or <strong>development</strong> roadmap with timelines, deliverables, and clear KPIs — so you always know what to expect.</p>
+                    <p class="step-desc">A tailored <strong>digital marketing</strong> or <strong>development</strong>
+                        roadmap with timelines, deliverables, and clear KPIs — so you always know what to expect.</p>
                 </div>
                 <div class="process-step reveal" style="transition-delay:0.3s">
                     <div class="step-num">03</div>
                     <h4 class="step-name">Design & Build</h4>
-                    <p class="step-desc">Our <strong>web development</strong> and design team executes with precision — iterative sprints, regular previews, and zero-surprise deliveries.</p>
+                    <p class="step-desc">Our <strong>web development</strong> and design team executes with precision —
+                        iterative sprints, regular previews, and zero-surprise deliveries.</p>
                 </div>
                 <div class="process-step reveal" style="transition-delay:0.4s">
                     <div class="step-num">04</div>
                     <h4 class="step-name">Launch & Optimise</h4>
-                    <p class="step-desc">We launch, monitor performance with analytics, and continuously refine your <strong>digital presence</strong> — because shipping is just the beginning.</p>
+                    <p class="step-desc">We launch, monitor performance with analytics, and continuously refine your
+                        <strong>digital presence</strong> — because shipping is just the beginning.</p>
                 </div>
             </div>
         </div>
@@ -2392,7 +2463,11 @@
             <div class="reveal">
                 <div class="section-label">Why Problem Solving Mind</div>
                 <h2 class="section-title">Why Choose <span>PSM</span> as Your Digital Agency</h2>
-                <h3 style="font-size:1.05rem; color:var(--text-secondary); font-weight:400; margin-top:14px; max-width:560px;">We're not just a vendor — we're a <strong>digital growth partner</strong> invested in your success from day one, across <strong>marketing</strong>, <strong>development</strong>, and <strong>AI solutions</strong>.</h3>
+                <h3
+                    style="font-size:1.05rem; color:var(--text-secondary); font-weight:400; margin-top:14px; max-width:560px;">
+                    We're not just a vendor — we're a <strong>digital growth partner</strong> invested in your success
+                    from day one, across <strong>marketing</strong>, <strong>development</strong>, and <strong>AI
+                        solutions</strong>.</h3>
             </div>
             <div class="why-grid" style="margin-top:56px;">
                 <div class="why-card reveal" style="transition-delay:0.1s">
@@ -2405,7 +2480,9 @@
                         </svg>
                     </div>
                     <h4 class="why-title">Outcome-First Digital Strategy</h4>
-                    <p class="why-desc">Every <strong>digital marketing</strong> and development decision is tied to a business metric. We don't ship beautiful things that don't convert — we ship things that work.</p>
+                    <p class="why-desc">Every <strong>digital marketing</strong> and development decision is tied to a
+                        business metric. We don't ship beautiful things that don't convert — we ship things that work.
+                    </p>
                 </div>
                 <div class="why-card reveal" style="transition-delay:0.2s">
                     <div class="why-icon">
@@ -2415,7 +2492,8 @@
                         </svg>
                     </div>
                     <h4 class="why-title">Speed Without Compromise</h4>
-                    <p class="why-desc">Agile <strong>web development</strong> workflows mean you move fast — without sacrificing quality, security, or scalability.</p>
+                    <p class="why-desc">Agile <strong>web development</strong> workflows mean you move fast — without
+                        sacrificing quality, security, or scalability.</p>
                 </div>
                 <div class="why-card reveal" style="transition-delay:0.3s">
                     <div class="why-icon">
@@ -2430,7 +2508,9 @@
                         </svg>
                     </div>
                     <h4 class="why-title">Full-Spectrum Digital Expertise</h4>
-                    <p class="why-desc">One team. Five disciplines. <strong>Digital Marketing</strong>, <strong>Web Development</strong>, <strong>Mobile Apps</strong>, <strong>Automation</strong>, and <strong>AI Agents</strong> — all under one roof.</p>
+                    <p class="why-desc">One team. Five disciplines. <strong>Digital Marketing</strong>, <strong>Web
+                            Development</strong>, <strong>Mobile Apps</strong>, <strong>Automation</strong>, and
+                        <strong>AI Agents</strong> — all under one roof.</p>
                 </div>
                 <div class="why-card reveal" style="transition-delay:0.4s">
                     <div class="why-icon">
@@ -2442,7 +2522,8 @@
                         </svg>
                     </div>
                     <h4 class="why-title">Transparent Partnership</h4>
-                    <p class="why-desc">Clear contracts, honest timelines, and real-time progress visibility. We treat your budget like it's ours — because your growth is our growth.</p>
+                    <p class="why-desc">Clear contracts, honest timelines, and real-time progress visibility. We treat
+                        your budget like it's ours — because your growth is our growth.</p>
                 </div>
             </div>
         </div>
@@ -2453,12 +2534,17 @@
     <!-- ========================
      PRICING
 ======================== -->
-    <section class="section" id="pricing" style="background: var(--bg-secondary);" aria-label="Digital Agency Pricing Plans India">
+    <section class="section" id="pricing" style="background: var(--bg-secondary);"
+        aria-label="Digital Agency Pricing Plans India">
         <div class="container">
             <div class="reveal" style="text-align:center;">
                 <div class="section-label" style="justify-content:center;">Transparent Pricing</div>
                 <h2 class="section-title" style="text-align:center;">Digital Agency Pricing in <span>₹ INR</span></h2>
-                <h3 style="font-size:1.05rem; color:var(--text-secondary); font-weight:400; margin:14px auto 0; max-width:560px; text-align:center;">Fair, market-competitive pricing for <strong>digital marketing</strong>, <strong>web development</strong>, <strong>mobile app development</strong>, and <strong>AI agents</strong> — no hidden costs, fully customisable.</h3>
+                <h3
+                    style="font-size:1.05rem; color:var(--text-secondary); font-weight:400; margin:14px auto 0; max-width:560px; text-align:center;">
+                    Fair, market-competitive pricing for <strong>digital marketing</strong>, <strong>web
+                        development</strong>, <strong>mobile app development</strong>, and <strong>AI agents</strong> —
+                    no hidden costs, fully customisable.</h3>
             </div>
 
             <div class="pricing-grid">
@@ -2650,7 +2736,10 @@
             <div class="reveal" style="text-align:center;">
                 <div class="section-label" style="justify-content:center;">The Team</div>
                 <h2 class="section-title" style="text-align:center;">Meet the <span>Founders</span> of PSM</h2>
-                <h3 style="font-size:1.05rem; color:var(--text-secondary); font-weight:400; margin:14px auto 0; max-width:560px; text-align:center;">Two builders who created <strong>Problem Solving Mind</strong> to solve real digital challenges — and never stopped.</h3>
+                <h3
+                    style="font-size:1.05rem; color:var(--text-secondary); font-weight:400; margin:14px auto 0; max-width:560px; text-align:center;">
+                    Two builders who created <strong>Problem Solving Mind</strong> to solve real digital challenges —
+                    and never stopped.</h3>
             </div>
 
             <div class="founders-grid">
@@ -2658,7 +2747,10 @@
                     <div class="founder-avatar">PV</div>
                     <h3 class="founder-name">Prasanna Venkatesan</h3>
                     <div class="founder-role">Founder &amp; Digital Marketing Strategy Lead</div>
-                    <p class="founder-bio">A strategic thinker with a deep understanding of markets and brand positioning. Prasanna drives <strong>digital marketing strategy</strong>, business development, and client partnerships — making sure every project delivers real commercial impact for <strong>Problem Solving Mind</strong>.</p>
+                    <p class="founder-bio">A strategic thinker with a deep understanding of markets and brand
+                        positioning. Prasanna drives <strong>digital marketing strategy</strong>, business development,
+                        and client partnerships — making sure every project delivers real commercial impact for
+                        <strong>Problem Solving Mind</strong>.</p>
                 </div>
 
                 <div class="card founder-card reveal" style="transition-delay:0.2s">
@@ -2666,7 +2758,10 @@
                         style="background: linear-gradient(135deg, var(--accent-amber), #b45309);">MS</div>
                     <h3 class="founder-name">Maniyarasan</h3>
                     <div class="founder-role">Co-Founder &amp; Technology Lead — Web, Mobile &amp; AI</div>
-                    <p class="founder-bio">A full-stack engineer and <strong>AI agent</strong> specialist with a passion for turning complex challenges into scalable solutions. Maniyarasan leads <strong>web development</strong>, <strong>mobile app development</strong>, and <strong>AI agent</strong> architecture at PSM.</p>
+                    <p class="founder-bio">A full-stack engineer and <strong>AI agent</strong> specialist with a passion
+                        for turning complex challenges into scalable solutions. Maniyarasan leads <strong>web
+                            development</strong>, <strong>mobile app development</strong>, and <strong>AI agent</strong>
+                        architecture at PSM.</p>
                 </div>
             </div>
         </div>
@@ -2681,7 +2776,9 @@
         <div class="container">
             <div class="reveal">
                 <h2 class="cta-title">Your <span class="gradient-text">Digital Growth</span> Starts Here</h2>
-                <p class="cta-sub">Tell us your challenge. Our <strong>digital marketing</strong>, <strong>web development</strong> &amp; <strong>AI</strong> experts will come back with a plan — within 24 hours, no strings attached.</p>
+                <p class="cta-sub">Tell us your challenge. Our <strong>digital marketing</strong>, <strong>web
+                        development</strong> &amp; <strong>AI</strong> experts will come back with a plan — within 24
+                    hours, no strings attached.</p>
                 <div class="cta-actions">
                     <a href="https://forms.gle/UawtQD7Xi8FgZBSKA" target="_blank" rel="noopener noreferrer"
                         class="btn btn-primary" style="font-size:1.05rem; padding:16px 36px;">
@@ -2772,10 +2869,14 @@
             </div>
 
             <div class="footer-bottom">
-                <p>© 2025 <strong>Problem Solving Mind (PSM)</strong>. All rights reserved. Founded by <strong>Prasanna Venkatesan</strong> &amp; <strong>Maniyarasan</strong> — India's full-service <a href="#services" style="color:var(--accent-cyan);">digital agency</a>.
+                <p>© 2025 <strong>Problem Solving Mind (PSM)</strong>. All rights reserved. Founded by <strong>Prasanna
+                        Venkatesan</strong> &amp; <strong>Maniyarasan</strong> — India's full-service <a
+                        href="#services" style="color:var(--accent-cyan);">digital agency</a>.
                 </p>
                 <p style="color: var(--accent-cyan); font-size: 0.85rem; font-weight: 500;">
-                    <a href="#services" style="color:var(--accent-cyan);">Digital Marketing</a> &middot; <a href="#services" style="color:var(--accent-cyan);">Web Development</a> &middot; <a href="#services" style="color:var(--accent-cyan);">AI Agents</a> &middot; India
+                    <a href="#services" style="color:var(--accent-cyan);">Digital Marketing</a> &middot; <a
+                        href="#services" style="color:var(--accent-cyan);">Web Development</a> &middot; <a
+                        href="#services" style="color:var(--accent-cyan);">AI Agents</a> &middot; India
                 </p>
             </div>
         </div>
@@ -2794,6 +2895,8 @@
         const cursorRing = document.getElementById('cursor-ring');
         let mouseX = 0, mouseY = 0;
         let ringX = 0, ringY = 0;
+        let ringRafId = null;
+        let cursorIdle = false;
 
         const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.matchMedia('(pointer: coarse)').matches;
 
@@ -2801,16 +2904,26 @@
             document.addEventListener('mousemove', e => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
-                // Use hardware accelerated transform instead of left/top for better framerates
                 cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+                if (cursorIdle) {
+                    cursorIdle = false;
+                    if (!ringRafId) animateRing();
+                }
             });
 
-            // Smooth ring follow
+            // Smooth ring follow — stops rAF when cursor is idle (ring has caught up)
             function animateRing() {
-                ringX += (mouseX - ringX) * 0.12;
-                ringY += (mouseY - ringY) * 0.12;
+                const dx = mouseX - ringX;
+                const dy = mouseY - ringY;
+                ringX += dx * 0.12;
+                ringY += dy * 0.12;
                 cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
-                requestAnimationFrame(animateRing);
+                if (Math.abs(dx) > 0.5 || Math.abs(dy) > 0.5) {
+                    ringRafId = requestAnimationFrame(animateRing);
+                } else {
+                    ringRafId = null;
+                    cursorIdle = true;
+                }
             }
             animateRing();
 
@@ -2821,20 +2934,26 @@
             });
         }
 
-        // ===== PARTICLES BACKGROUND =====
+        // ===== PARTICLES BACKGROUND (optimised) =====
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
+        // Spatial grid cell size matches connection threshold distance (100px)
+        const CELL = 100;
+        let gridCols = 0, gridRows = 0;
 
         function initParticles() {
             particles = [];
-            const particleCount = window.innerWidth < 768 ? 40 : 120;
+            // Reduced count: 60 on desktop is imperceptible vs 120 but halves connection checks
+            const particleCount = window.innerWidth < 768 ? 0 : 60;
             for (let i = 0; i < particleCount; i++) particles.push(new Particle());
         }
 
         function resize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            gridCols = Math.ceil(canvas.width / CELL);
+            gridRows = Math.ceil(canvas.height / CELL);
             initParticles();
         }
 
@@ -2867,42 +2986,91 @@
             }
         }
 
+        // Spatial-grid O(n) connection pass — avoids O(n²) brute force
         function connectParticles() {
+            // Build grid
+            const grid = new Array(gridCols * gridRows);
+            for (let i = 0; i < grid.length; i++) grid[i] = [];
             for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distSq = dx * dx + dy * dy;
-                    if (distSq < 10000) {
-                        const dist = Math.sqrt(distSq);
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(0, 102, 204, ${0.04 * (1 - dist / 100)})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
+                const p = particles[i];
+                const cx = Math.min(Math.floor(p.x / CELL), gridCols - 1);
+                const cy = Math.min(Math.floor(p.y / CELL), gridRows - 1);
+                grid[cy * gridCols + cx].push(i);
+            }
+            // Check only neighbouring cells
+            ctx.lineWidth = 0.5;
+            for (let cy = 0; cy < gridRows; cy++) {
+                for (let cx = 0; cx < gridCols; cx++) {
+                    const cell = grid[cy * gridCols + cx];
+                    if (!cell.length) continue;
+                    for (let dy = 0; dy <= 1; dy++) {
+                        for (let dx = (dy === 0 ? 1 : -1); dx <= 1; dx++) {
+                            const nx = cx + dx, ny = cy + dy;
+                            if (nx < 0 || nx >= gridCols || ny >= gridRows) continue;
+                            const neighbor = grid[ny * gridCols + nx];
+                            for (let a = 0; a < cell.length; a++) {
+                                for (let b = 0; b < neighbor.length; b++) {
+                                    const pi = particles[cell[a]], pj = particles[neighbor[b]];
+                                    const ddx = pi.x - pj.x, ddy = pi.y - pj.y;
+                                    const distSq = ddx * ddx + ddy * ddy;
+                                    if (distSq < 10000) {
+                                        const dist = Math.sqrt(distSq);
+                                        ctx.beginPath();
+                                        ctx.strokeStyle = `rgba(0, 102, 204, ${0.04 * (1 - dist / 100)})`;
+                                        ctx.moveTo(pi.x, pi.y);
+                                        ctx.lineTo(pj.x, pj.y);
+                                        ctx.stroke();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    // Same-cell pairs
+                    for (let a = 0; a < cell.length - 1; a++) {
+                        for (let b = a + 1; b < cell.length; b++) {
+                            const pi = particles[cell[a]], pj = particles[cell[b]];
+                            const ddx = pi.x - pj.x, ddy = pi.y - pj.y;
+                            const distSq = ddx * ddx + ddy * ddy;
+                            if (distSq < 10000) {
+                                const dist = Math.sqrt(distSq);
+                                ctx.beginPath();
+                                ctx.strokeStyle = `rgba(0, 102, 204, ${0.04 * (1 - dist / 100)})`;
+                                ctx.moveTo(pi.x, pi.y);
+                                ctx.lineTo(pj.x, pj.y);
+                                ctx.stroke();
+                            }
+                        }
                     }
                 }
             }
         }
 
-        function animateParticles() {
-            if (window.innerWidth < 768) return; // Disable canvas loop on mobile
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            connectParticles();
+        // Throttle particle animation to ~30fps on battery-sensitive devices
+        let lastParticleFrame = 0;
+        const PARTICLE_INTERVAL = 33; // ~30fps
+
+        function animateParticles(ts) {
+            if (window.innerWidth < 768) return;
+            if (ts - lastParticleFrame >= PARTICLE_INTERVAL) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => { p.update(); p.draw(); });
+                connectParticles();
+                lastParticleFrame = ts;
+            }
             requestAnimationFrame(animateParticles);
         }
 
         resize();
         if (window.innerWidth >= 768) {
-            animateParticles();
+            requestAnimationFrame(animateParticles);
         }
 
         // ===== CENTRALIZED SCROLL LISTENER =====
         const navbar = document.getElementById('navbar');
         const floatCta = document.getElementById('float-cta');
         const progressBar = document.getElementById('scroll-progress');
+        // Cache parallax element — avoid querySelector inside rAF every scroll event
+        const heroGridOverlay = document.querySelector('.hero-grid-overlay');
 
         let isScrollPending = false;
 
@@ -2927,10 +3095,9 @@
                     // Progress bar
                     progressBar.style.width = (scrollY / docHeight * 100) + '%';
 
-                    // Parallax
-                    if (window.innerWidth >= 900) {
-                        const grid = document.querySelector('.hero-grid-overlay');
-                        if (grid) grid.style.transform = `translateY(${scrollY * 0.2}px)`;
+                    // Parallax — uses cached ref, only on desktop
+                    if (window.innerWidth >= 900 && heroGridOverlay) {
+                        heroGridOverlay.style.transform = `translateY(${scrollY * 0.2}px)`;
                     }
 
                     isScrollPending = false;
