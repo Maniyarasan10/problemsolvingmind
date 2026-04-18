@@ -1,5 +1,48 @@
+# robots.txt — Problem Solving Mind (PSM)
+# https://www.problemsolvingmind.com
+
+# ── Allow all well-behaved crawlers ──────────────────────────────────────────
 User-agent: *
 Allow: /
 
+# Block access to any admin, private, or config paths (add more as needed)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /*.env$
+Disallow: /*.config$
+
+# ── Google-specific rules ─────────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.png$
+
+# ── Bing ─────────────────────────────────────────────────────────────────────
+User-agent: Bingbot
+Allow: /
+
+# ── Block known bad bots & scrapers ──────────────────────────────────────────
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# ── Sitemap location ──────────────────────────────────────────────────────────
 Sitemap: https://www.problemsolvingmind.com/sitemap.xml
-LLM: https://www.problemsolvingmind.com/llm.txt
+
+# Crawl-delay hint (optional — helps avoid server overload on shared hosting)
+Crawl-delay: 5
